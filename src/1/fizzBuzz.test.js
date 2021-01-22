@@ -1,5 +1,5 @@
 const {expect} = require('chai');
-const {fizzBuzz} = require('../../src/1/fizzBuzz');
+const {fizzBuzz} = require('./fizzBuzz');
 
 function checkFizzBuzz(testValue, expectedResult) {
   const result = fizzBuzz(testValue);

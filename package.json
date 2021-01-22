@@ -4,7 +4,7 @@
   "description": "TDD exercises",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"tests/**/*.test.js\""
+    "test": "mocha \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
