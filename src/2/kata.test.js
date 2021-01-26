@@ -1,7 +1,7 @@
 const {expect} = require('chai');
 const {add} = require('./kata');
 
-describe.only('add()', () => {
+describe('add()', () => {
   it('should return 0 with no parameters', () => {
     const result = add();
     expect(result).to.equal(0);
