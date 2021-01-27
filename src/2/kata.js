@@ -3,30 +3,37 @@ function add(numbers = '') {
     return 0;
   }
 
-  let delimiter = ',';
+  const BASE_DELIMITER = ',';
+  let delimiterArray = [BASE_DELIMITER];
   const hasCustomDelimiter = numbers.substr(0, 2) === '//';
 
   if (hasCustomDelimiter) {
     const hasLongCustomDelimiter = numbers[2] === '[';
 
-    delimiter = hasLongCustomDelimiter
-      ? numbers.match(/(?<=\[)(.*?)(?=\])/g)[0]
-      : numbers[2];
+    delimiterArray = hasLongCustomDelimiter
+      ? numbers.match(/(?<=\[)(.*?)(?=\])/g)
+      : [numbers[2]];
 
-    numbers = hasLongCustomDelimiter 
-      ? numbers.substr(6 + delimiter.length - 1, numbers.length)
-      : numbers.substr(4, numbers.length)
+    const firstOccurranceOfNewLine = numbers.indexOf('\n');
+
+    numbers = numbers.substr(firstOccurranceOfNewLine + 1, numbers.length);
   }
 
-  const splitted = numbers.split('\n').join(delimiter).split(delimiter);
+  numbers = numbers.split('\n').join(delimiterArray[0]);
+
+  delimiterArray.forEach(element => {
+    numbers = numbers.split(element).join(BASE_DELIMITER)
+  });
+
+  numbers = numbers.split(BASE_DELIMITER);
   
-  const negativeNumbers = splitted.filter((el) => el < 0);
+  const negativeNumbers = numbers.filter((el) => el < 0);
 
   if (negativeNumbers.length) {
     throw new TypeError(`Negatives not allowed: ${negativeNumbers.join(', ')}`);
   }
 
-  return splitted
+  return numbers
     .filter(el => el <= 1000)
     .reduce((acc, strNum) => acc + parseInt(strNum), 0)
 }

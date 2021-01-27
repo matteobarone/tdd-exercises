@@ -4,7 +4,8 @@
   "description": "TDD exercises",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html mocha \"src/**/*.test.js\""
+    "test": "nyc mocha \"src/**/*.test.js\"",
+    "coverage": "nyc --reporter=html mocha \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
