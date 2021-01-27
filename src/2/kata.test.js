@@ -24,9 +24,13 @@ describe('add()', () => {
     const result1 = add('//;\n1;2');
     const result2 = add('//%\n1%2%33\n7');
     const result3 = add('//$\n1\n2\n9');
+    const result4 = add('//[***]\n1***2***3');
+    const result5 = add('//[%$&*)]\n1%$&*)2%$&*)3\n4');
     expect(result1).to.equal(3);
     expect(result2).to.equal(43);
     expect(result3).to.equal(12);
+    expect(result4).to.equal(6);
+    expect(result5).to.equal(10);
   })
 
   it('should throw and error if one or more number are negative', () => {
