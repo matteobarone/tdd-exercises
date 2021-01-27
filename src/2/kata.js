@@ -11,10 +11,16 @@ function add(numbers = '') {
     numbers = numbers.substr(4, numbers.length);
   }
 
-  const withoutNewLines = numbers.replace(/\n/g, delimiter);
+  const splitted = numbers.replace(/\n/g, delimiter).split(delimiter);
+  
+  const negativeNumbers = splitted.filter((el) => el < 0);
 
-  return withoutNewLines
-    .split(delimiter)
+  if (negativeNumbers.length) {
+    throw new TypeError(`Negatives not allowed: ${negativeNumbers.join(', ')}`);
+  }
+
+  return splitted
+    .filter(el => el <= 1000)
     .reduce((acc, strNum) => acc + parseInt(strNum), 0)
 }
 
