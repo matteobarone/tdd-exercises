@@ -4,7 +4,7 @@
   "description": "TDD exercises",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"src/**/*.test.js\""
+    "test": "nyc --reporter=html mocha \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/matteobarone/tdd-exercises#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0"
   }
 }
