@@ -1,8 +1,8 @@
-function isMultipleOf(value, n) {
-  return value % n === 0
+function isMultipleOf(value: number, n: number) {
+  return value % n === 0;
 }
 
-function fizzBuzz(value) {
+export function fizzBuzz(value: number) {
   if (isMultipleOf(value, 3) && isMultipleOf(value, 5)) {
     return 'FizzBuzz';
   }
@@ -16,8 +16,4 @@ function fizzBuzz(value) {
   }
 
   return value.toString();
-}
-
-module.exports = {
-  fizzBuzz
 }
