@@ -8,6 +8,7 @@
   "rules": {
     "import/prefer-default-export": "off",
     "no-console": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "@typescript-eslint/no-unused-expressions": ["off"]
   }
 }
